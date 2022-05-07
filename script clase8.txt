@@ -1,0 +1,31 @@
+CREATE DATABASE clase8;
+
+USE clase8;
+
+CREATE TABLE proyectos(
+    id INT PRIMARY KEY not null,
+    titulo VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE integrantes(
+    id INT PRIMARY KEY not null,
+    nombre VARCHAR(120) NOT NULL,
+    id_proyecto INT,
+    FOREIGN KEY (id_proyecto) 
+        REFERENCES proyectos(id)
+);
+
+INSERT INTO 
+    proyectos(id, titulo)
+VALUES
+    (1, 'New CRM for Project Sales'),
+    (2, 'ERP Implementation'),
+    (3, 'Develop Mobile Sales Platform');
+
+INSERT INTO
+    integrantes(id, nombre, id_proyecto)
+VALUES
+    (1, 'John Doe', 1),
+    (2, 'Lily Bush', 1),
+    (3, 'Jane Doe', 2),
+    (4, 'Jack Daniel', null);
